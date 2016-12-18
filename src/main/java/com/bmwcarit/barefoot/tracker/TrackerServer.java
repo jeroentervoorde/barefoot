@@ -18,6 +18,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.atomic.AtomicReference;
 
+import com.bmwcarit.barefoot.roadmap.*;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +28,6 @@ import com.bmwcarit.barefoot.matcher.Matcher;
 import com.bmwcarit.barefoot.matcher.MatcherCandidate;
 import com.bmwcarit.barefoot.matcher.MatcherKState;
 import com.bmwcarit.barefoot.matcher.MatcherSample;
-import com.bmwcarit.barefoot.roadmap.Road;
-import com.bmwcarit.barefoot.roadmap.RoadMap;
-import com.bmwcarit.barefoot.roadmap.RoadPoint;
-import com.bmwcarit.barefoot.roadmap.TimePriority;
 import com.bmwcarit.barefoot.scheduler.StaticScheduler;
 import com.bmwcarit.barefoot.scheduler.StaticScheduler.InlineScheduler;
 import com.bmwcarit.barefoot.scheduler.Task;
@@ -71,7 +68,7 @@ public class TrackerServer extends AbstractServer {
      * </ul>
      *
      * @param properties {@link Properties} object with (optional) server and matcher settings.
-     * @param map {@link RoadMap} object with the map to be matched with.
+     * @param map {@link RoadMapImpl} object with the map to be matched with.
      */
     public TrackerServer(Properties properties, RoadMap map) {
         super(properties, new MatcherResponseFactory(properties, map));
@@ -79,9 +76,9 @@ public class TrackerServer extends AbstractServer {
     }
 
     /**
-     * Gets {@link RoadMap} object of the server.
+     * Gets {@link RoadMapImpl} object of the server.
      *
-     * @return {@link RoadMap} object of the server.
+     * @return {@link RoadMapImpl} object of the server.
      */
     public RoadMap getMap() {
         return this.map;

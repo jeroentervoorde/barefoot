@@ -205,7 +205,7 @@ public class Route extends Path<Road> {
      * Creates a {@link Route} object from its JSON representation.
      *
      * @param json JSON representation of the {@link Route}.
-     * @param map {@link RoadMap} object as the reference of {@link RoadPoint}s and {@link Road}s.
+     * @param map {@link RoadMapImpl} object as the reference of {@link RoadPoint}s and {@link Road}s.
      * @return {@link Route} object.
      * @throws JSONException thrown on JSON extraction or parsing error.
      */

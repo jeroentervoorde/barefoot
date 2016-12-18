@@ -18,6 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.bmwcarit.barefoot.roadmap.RoadMapImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,7 +68,7 @@ public abstract class ServerControl {
             System.exit(1);
         }
 
-        RoadMap map = null;
+        RoadMapImpl map = null;
         try {
             map = Loader.roadmap(databaseProperties, true);
         } catch (SourceException e) {

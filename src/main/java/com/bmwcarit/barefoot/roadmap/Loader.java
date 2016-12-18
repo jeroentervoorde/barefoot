@@ -44,17 +44,17 @@ public class Loader {
     private static Logger logger = LoggerFactory.getLogger(Loader.class);
 
     /**
-     * Loads {@link RoadMap} object from database (or file buffer, if set to true) using database
+     * Loads {@link RoadMapImpl} object from database (or file buffer, if set to true) using database
      * connection parameters provided with the properties. For details on properties, see
      * {@link Loader#roadmap(Properties, boolean)}.
      *
      * @param propertiesPath Path to properties file.
      * @param buffer Indicates if map shall be read from file buffer and written to file buffer.
-     * @return {@link RoadMap} read from source. (Note: It is not yet constructed!)
+     * @return {@link RoadMapImpl} read from source. (Note: It is not yet constructed!)
      * @throws SourceException thrown if reading properties, road types or road map data fails.
      * @throws IOException thrown if opening properties file fails.
      */
-    public static RoadMap roadmap(String propertiesPath, boolean buffer)
+    public static RoadMapImpl roadmap(String propertiesPath, boolean buffer)
             throws SourceException, IOException {
         InputStream is = new FileInputStream(propertiesPath);
         Properties props = new Properties();
@@ -64,7 +64,7 @@ public class Loader {
     }
 
     /**
-     * Loads {@link RoadMap} object from database (or file buffer, if set to true) using database
+     * Loads {@link RoadMapImpl} object from database (or file buffer, if set to true) using database
      * connection parameters provided with the following properties:
      * <ul>
      * <li>database.host (e.g. localhost)</li>
@@ -78,22 +78,22 @@ public class Loader {
      *
      * @param properties {@link Properties} object with database connection parameters.
      * @param buffer Indicates if map shall be read from file buffer and written to file buffer.
-     * @return {@link RoadMap} read from source. (Note: It is not yet constructed!)
+     * @return {@link RoadMapImpl} read from source. (Note: It is not yet constructed!)
      * @throws SourceException thrown if reading properties, road types or road map data fails.
      */
-    public static RoadMap roadmap(Properties properties, boolean buffer) throws SourceException {
+    public static RoadMapImpl roadmap(Properties properties, boolean buffer) throws SourceException {
         String database = properties.getProperty("database.name");
         if (database == null) {
             throw new SourceException("could not read database properties");
         }
 
         File file = new File(database + ".bfmap");
-        RoadMap map = null;
+        RoadMapImpl map = null;
 
         if (!file.exists() || !buffer) {
             logger.info("load map from database {}", database);
             RoadReader reader = reader(properties);
-            map = RoadMap.Load(reader);
+            map = RoadMapImpl.Load(reader);
 
             if (buffer) {
                 reader = map.reader();
@@ -111,7 +111,7 @@ public class Loader {
             }
         } else {
             logger.info("load map from file {}", file.getAbsolutePath());
-            map = RoadMap.Load(new BfmapReader(file.getAbsolutePath()));
+            map = RoadMapImpl.Load(new BfmapReader(file.getAbsolutePath()));
         }
 
         return map;

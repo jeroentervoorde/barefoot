@@ -24,9 +24,9 @@ import com.esri.core.geometry.GeometryEngine;
 import com.esri.core.geometry.Point;
 
 public class Testmap {
-    private static RoadMap map = null;
+    private static RoadMapImpl map = null;
 
-    public static RoadMap instance() throws IOException, JSONException {
+    public static RoadMapImpl instance() throws IOException, JSONException {
         if (map != null) {
             return map;
         } else {

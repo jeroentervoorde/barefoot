@@ -25,17 +25,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.bmwcarit.barefoot.roadmap.*;
 import org.json.JSONException;
 import org.junit.Test;
 
 import com.bmwcarit.barefoot.road.BaseRoad;
 import com.bmwcarit.barefoot.road.RoadReader;
-import com.bmwcarit.barefoot.roadmap.Road;
-import com.bmwcarit.barefoot.roadmap.RoadMap;
-import com.bmwcarit.barefoot.roadmap.RoadPoint;
-import com.bmwcarit.barefoot.roadmap.Route;
-import com.bmwcarit.barefoot.roadmap.Time;
-import com.bmwcarit.barefoot.roadmap.TimePriority;
 import com.bmwcarit.barefoot.spatial.Geography;
 import com.bmwcarit.barefoot.spatial.SpatialOperator;
 import com.bmwcarit.barefoot.topology.Cost;
@@ -55,7 +50,7 @@ public class MatcherTest {
     private final SpatialOperator spatial = new Geography();
     private final Router<Road, RoadPoint> router = new Dijkstra<>();
     private final Cost<Road> cost = new Time();
-    private final RoadMap map = RoadMap.Load(new RoadReader() {
+    private final RoadMapImpl map = RoadMapImpl.Load(new RoadReader() {
         class Entry extends Quintuple<Long, Long, Long, Boolean, String> {
             private static final long serialVersionUID = 1L;
 

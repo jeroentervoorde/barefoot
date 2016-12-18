@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.bmwcarit.barefoot.topology.GraphImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Ignore;
@@ -30,7 +31,6 @@ import com.bmwcarit.barefoot.road.BaseRoad;
 import com.bmwcarit.barefoot.road.Heading;
 import com.bmwcarit.barefoot.spatial.Geography;
 import com.bmwcarit.barefoot.spatial.SpatialOperator;
-import com.bmwcarit.barefoot.topology.Graph;
 import com.bmwcarit.barefoot.util.SourceException;
 import com.esri.core.geometry.Geometry;
 import com.esri.core.geometry.GeometryEngine;
@@ -74,7 +74,7 @@ public class RouteTest {
             osm.add(new BaseRoad(2L, 4L, 1L, 2L, false, (short) 1, 1F, 60F, 60F,
                     (float) spatial.length(geometry2), geometry2));
 
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             for (BaseRoad road : osm) {
                 map.add(new Road(road, Heading.forward));
                 map.add(new Road(road, Heading.backward));
@@ -161,7 +161,7 @@ public class RouteTest {
             osm.add(new BaseRoad(3L, 3L, 4L, 3L, false, (short) 1, 1F, 60F, 60F,
                     (float) spatial.length(geometry3), geometry3));
 
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             for (BaseRoad road : osm) {
                 map.add(new Road(road, Heading.forward));
                 map.add(new Road(road, Heading.backward));
@@ -303,7 +303,7 @@ public class RouteTest {
                 (float) spatial.length(geometry6), geometry6));
 
 
-        Graph<Road> map = new Graph<>();
+        GraphImpl<Road> map = new GraphImpl<>();
         for (BaseRoad road : osm) {
             map.add(new Road(road, Heading.forward));
             map.add(new Road(road, Heading.backward));
@@ -555,7 +555,7 @@ public class RouteTest {
                 (float) spatial.length(geometry6), geometry6));
 
 
-        RoadMap map = new RoadMap();
+        RoadMapImpl map = new RoadMapImpl();
         for (BaseRoad road : osm) {
             map.add(new Road(road, Heading.forward));
             map.add(new Road(road, Heading.backward));

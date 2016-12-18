@@ -13,6 +13,7 @@
 
 package com.bmwcarit.barefoot.matcher;
 
+import com.bmwcarit.barefoot.roadmap.RoadMapImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,7 +29,7 @@ public class MatcherFactory extends Factory<MatcherCandidate, MatcherTransition,
     /**
      * Creates {@link MatcherFactory} object.
      *
-     * @param map {@link RoadMap} object used for creation of matching candidates, transitions and
+     * @param map {@link RoadMapImpl} object used for creation of matching candidates, transitions and
      *        samples.
      */
     public MatcherFactory(RoadMap map) {

@@ -73,7 +73,7 @@ public class RoadMapTest {
     @Test
     public void testSplit() {
         for (BaseRoad osmroad : osmroads()) {
-            Collection<Road> roads = RoadMap.split(osmroad);
+            Collection<Road> roads = RoadMapImpl.split(osmroad);
             int forward = 0, backward = 0;
             for (Road road : roads) {
                 if (road.id() % 2 == 0) {
@@ -103,9 +103,9 @@ public class RoadMapTest {
 
     @Test
     public void testSpatialNearest() {
-        RoadMap map = new RoadMap();
+        RoadMapImpl map = new RoadMapImpl();
         for (BaseRoad osmroad : osmroads()) {
-            for (Road road : RoadMap.split(osmroad)) {
+            for (Road road : RoadMapImpl.split(osmroad)) {
                 map.add(road);
             }
         }
@@ -133,9 +133,9 @@ public class RoadMapTest {
 
     @Test
     public void testSpatialRadius() {
-        RoadMap map = new RoadMap();
+        RoadMapImpl map = new RoadMapImpl();
         for (BaseRoad osmroad : osmroads()) {
-            for (Road road : RoadMap.split(osmroad)) {
+            for (Road road : RoadMapImpl.split(osmroad)) {
                 map.add(road);
             }
         }

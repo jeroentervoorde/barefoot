@@ -98,7 +98,7 @@ public class RoadTest {
                         Geometry.Type.Polyline));
 
         Road road = new Road(osm, Heading.forward);
-        RoadMap map = new RoadMap();
+        RoadMapImpl map = new RoadMapImpl();
         map.add(road);
 
         String json = road.toJSON().toString();

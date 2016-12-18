@@ -71,7 +71,7 @@ public class RoadPoint extends com.bmwcarit.barefoot.topology.Point<Road> {
      * Creates a {@link RoadPoint} object from its JSON representation.
      *
      * @param json JSON representation of the {@link RoadPoint} object.
-     * @param map {@link RoadMap} as reference of the {@link RoadPoint}.
+     * @param map {@link RoadMapImpl} as reference of the {@link RoadPoint}.
      * @return {@link RoadPoint} object.
      * @throws JSONException thrown on JSON extraction or parsing error.
      */

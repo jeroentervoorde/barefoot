@@ -75,7 +75,7 @@ public class PathTest {
     @Test
     public void testValid() {
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 0, 100));
             map.construct();
 
@@ -120,7 +120,7 @@ public class PathTest {
             }
         }
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 1, 100));
             map.add(new Road(1, 1, 2, 100));
             map.add(new Road(2, 2, 0, 100));
@@ -153,7 +153,7 @@ public class PathTest {
             }
         }
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 1, 100));
             map.add(new Road(1, 1, 0, 100));
             map.add(new Road(2, 0, 2, 160));
@@ -283,7 +283,7 @@ public class PathTest {
     @Test
     public void testCost() {
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 0, 100));
             map.construct();
 
@@ -336,7 +336,7 @@ public class PathTest {
             }
         }
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 1, 100));
             map.add(new Road(1, 1, 2, 100));
             map.add(new Road(2, 2, 0, 100));
@@ -356,7 +356,7 @@ public class PathTest {
             }
         }
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 1, 100));
             map.add(new Road(1, 1, 0, 100));
             map.add(new Road(2, 0, 2, 160));
@@ -425,7 +425,7 @@ public class PathTest {
     @Test
     public void testAdd() {
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 0, 100));
             map.construct();
 
@@ -562,7 +562,7 @@ public class PathTest {
             }
         }
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 1, 100));
             map.add(new Road(1, 1, 2, 100));
             map.add(new Road(2, 2, 0, 100));
@@ -739,7 +739,7 @@ public class PathTest {
             }
         }
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 1, 100));
             map.add(new Road(1, 1, 0, 100));
             map.add(new Road(2, 0, 2, 160));

@@ -20,6 +20,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
+import com.bmwcarit.barefoot.roadmap.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,10 +29,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.bmwcarit.barefoot.markov.KState;
-import com.bmwcarit.barefoot.roadmap.Road;
-import com.bmwcarit.barefoot.roadmap.RoadMap;
-import com.bmwcarit.barefoot.roadmap.RoadPoint;
-import com.bmwcarit.barefoot.roadmap.TimePriority;
 import com.bmwcarit.barefoot.scheduler.StaticScheduler;
 import com.bmwcarit.barefoot.scheduler.StaticScheduler.InlineScheduler;
 import com.bmwcarit.barefoot.scheduler.Task;

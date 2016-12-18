@@ -31,25 +31,25 @@ public class GraphTest {
     @Test
     public void testConstruction() {
         {
-            Graph<Edge> graph = new Graph<>();
-            graph.add(new Edge(0, 0, 0));
+            GraphImpl<EdgeImpl> graph = new GraphImpl<>();
+            graph.add(new EdgeImpl(0, 0, 0));
             graph.construct();
 
-            Edge edge = graph.get(0);
+            EdgeImpl edge = graph.get(0);
             assertEquals(edge.id(), edge.successor().id());
             assertEquals(edge.id(), edge.neighbor().id());
         }
         {
-            Graph<Edge> graph = new Graph<>();
+            GraphImpl<EdgeImpl> graph = new GraphImpl<>();
 
-            graph.add(new Edge(0, 0, 1));
-            graph.add(new Edge(1, 1, 0));
-            graph.add(new Edge(2, 1, 2));
-            graph.add(new Edge(3, 2, 1));
-            graph.add(new Edge(4, 3, 1));
-            graph.add(new Edge(6, 4, 0));
-            graph.add(new Edge(7, 0, 4));
-            graph.add(new Edge(8, 0, 5));
+            graph.add(new EdgeImpl(0, 0, 1));
+            graph.add(new EdgeImpl(1, 1, 0));
+            graph.add(new EdgeImpl(2, 1, 2));
+            graph.add(new EdgeImpl(3, 2, 1));
+            graph.add(new EdgeImpl(4, 3, 1));
+            graph.add(new EdgeImpl(6, 4, 0));
+            graph.add(new EdgeImpl(7, 0, 4));
+            graph.add(new EdgeImpl(8, 0, 5));
 
             graph.construct();
 
@@ -62,11 +62,11 @@ public class GraphTest {
             sources.put(4L, new HashSet<>(Arrays.asList(6L)));
             sources.put(5L, new HashSet<Long>());
 
-            Iterator<Edge> edges = graph.edges();
+            Iterator<EdgeImpl> edges = graph.edges();
             while (edges.hasNext()) {
-                Edge edge = edges.next();
+                EdgeImpl edge = edges.next();
 
-                Iterator<Edge> outs = edge.successors();
+                Iterator<EdgeImpl> outs = edge.successors();
                 int count = 0;
 
                 while (outs.hasNext()) {
@@ -81,39 +81,39 @@ public class GraphTest {
 
     @Test
     public void testComponents() {
-        Graph<Edge> graph = new Graph<>();
+        GraphImpl<EdgeImpl> graph = new GraphImpl<>();
 
         // Component with dead-end edge.
-        graph.add(new Edge(0, 0, 1));
-        graph.add(new Edge(1, 1, 0));
-        graph.add(new Edge(2, 1, 2));
-        graph.add(new Edge(3, 2, 1));
-        graph.add(new Edge(4, 3, 1));
-        graph.add(new Edge(6, 4, 0));
-        graph.add(new Edge(7, 0, 4));
-        graph.add(new Edge(8, 0, 5));
+        graph.add(new EdgeImpl(0, 0, 1));
+        graph.add(new EdgeImpl(1, 1, 0));
+        graph.add(new EdgeImpl(2, 1, 2));
+        graph.add(new EdgeImpl(3, 2, 1));
+        graph.add(new EdgeImpl(4, 3, 1));
+        graph.add(new EdgeImpl(6, 4, 0));
+        graph.add(new EdgeImpl(7, 0, 4));
+        graph.add(new EdgeImpl(8, 0, 5));
 
         // Component with circle.
-        graph.add(new Edge(9, 6, 7));
-        graph.add(new Edge(10, 7, 8));
-        graph.add(new Edge(11, 8, 9));
-        graph.add(new Edge(12, 9, 6));
+        graph.add(new EdgeImpl(9, 6, 7));
+        graph.add(new EdgeImpl(10, 7, 8));
+        graph.add(new EdgeImpl(11, 8, 9));
+        graph.add(new EdgeImpl(12, 9, 6));
 
         // Component with self-loop edge.
-        graph.add(new Edge(13, 10, 10));
+        graph.add(new EdgeImpl(13, 10, 10));
 
         // Component with only dead-end edges.
-        graph.add(new Edge(14, 11, 12));
-        graph.add(new Edge(15, 11, 13));
-        graph.add(new Edge(16, 11, 14));
+        graph.add(new EdgeImpl(14, 11, 12));
+        graph.add(new EdgeImpl(15, 11, 13));
+        graph.add(new EdgeImpl(16, 11, 14));
 
-        graph.add(new Edge(17, 15, 16));
-        graph.add(new Edge(18, 16, 17));
-        graph.add(new Edge(19, 17, 18));
-        graph.add(new Edge(20, 18, 19));
-        graph.add(new Edge(21, 19, 20));
-        graph.add(new Edge(22, 20, 21));
-        graph.add(new Edge(23, 21, 22));
+        graph.add(new EdgeImpl(17, 15, 16));
+        graph.add(new EdgeImpl(18, 16, 17));
+        graph.add(new EdgeImpl(19, 17, 18));
+        graph.add(new EdgeImpl(20, 18, 19));
+        graph.add(new EdgeImpl(21, 19, 20));
+        graph.add(new EdgeImpl(22, 20, 21));
+        graph.add(new EdgeImpl(23, 21, 22));
 
         graph.construct();
 
@@ -125,10 +125,10 @@ public class GraphTest {
         sets.add(new HashSet<>(Arrays.asList(14L, 15L, 16L)));
         sets.add(new HashSet<>(Arrays.asList(17L, 18L, 19L, 20L, 21L, 22L, 23L)));
 
-        Set<Set<Edge>> components = graph.components();
+        Set<Set<EdgeImpl>> components = graph.components();
 
         assertEquals(sets.size(), components.size());
-        for (Set<Edge> component : components) {
+        for (Set<EdgeImpl> component : components) {
             Set<Long> set = null;
 
             for (Set<Long> set_ : sets) {

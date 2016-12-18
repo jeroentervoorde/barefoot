@@ -22,7 +22,7 @@ import com.bmwcarit.barefoot.topology.AbstractEdge;
 import com.esri.core.geometry.Polyline;
 
 /**
- * Directed road wrapper of {@link BaseRoad} objects in a directed road map ({@link RoadMap}). *
+ * Directed road wrapper of {@link BaseRoad} objects in a directed road map ({@link RoadMapImpl}). *
  * <p>
  * <b>Note:</b> Since {@link Road} objects are directional representations of {@link BaseRoad}
  * objects, each {@link BaseRoad} is split into two {@link Road} objects. For that purpose, it uses
@@ -154,7 +154,7 @@ public class Road extends AbstractEdge<Road> {
      * Creates a {@link Route} object from its JSON representation.
      *
      * @param json JSON representation of the {@link Route}.
-     * @param map {@link RoadMap} object as the reference of {@link RoadPoint}s and {@link Road}s.
+     * @param map {@link RoadMapImpl} object as the reference of {@link RoadPoint}s and {@link Road}s.
      * @return {@link Road} object.
      * @throws JSONException thrown on JSON extraction or parsing error.
      */

@@ -22,11 +22,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.bmwcarit.barefoot.roadmap.RoadMapImpl;
 import org.junit.Test;
 
 import com.bmwcarit.barefoot.road.BaseRoad;
 import com.bmwcarit.barefoot.road.RoadReader;
-import com.bmwcarit.barefoot.roadmap.RoadMap;
 import com.bmwcarit.barefoot.roadmap.RoadPoint;
 import com.bmwcarit.barefoot.spatial.Geography;
 import com.bmwcarit.barefoot.spatial.SpatialOperator;
@@ -42,7 +42,7 @@ public class MinsetTest {
 
     @Test
     public void TestMinset1() {
-        RoadMap map = RoadMap.Load(new RoadReader() {
+        RoadMapImpl map = RoadMapImpl.Load(new RoadReader() {
             class Entry extends Quintuple<Long, Long, Long, Boolean, String> {
                 private static final long serialVersionUID = 1L;
 
@@ -176,7 +176,7 @@ public class MinsetTest {
     @Test
     public void TestMinset2() {
         final SpatialOperator spatial = new Geography();
-        RoadMap map = RoadMap.Load(new RoadReader() {
+        RoadMapImpl map = RoadMapImpl.Load(new RoadReader() {
             class Entry extends Quintuple<Long, Long, Long, Boolean, String> {
                 private static final long serialVersionUID = 1L;
 

@@ -13,6 +13,7 @@
 
 package com.bmwcarit.barefoot.matcher;
 
+import com.bmwcarit.barefoot.roadmap.RoadMapImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
 

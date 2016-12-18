@@ -25,14 +25,14 @@ import org.junit.Test;
 public class EdgeTest {
     @Test
     public void testSuccessors() {
-        Edge edge0 = new Edge(0, 0, 1);
-        Edge edge1 = new Edge(1, 1, 0);
-        Edge edge2 = new Edge(2, 1, 2);
-        Edge edge3 = new Edge(3, 2, 1);
-        Edge edge4 = new Edge(4, 3, 1);
-        Edge edge6 = new Edge(6, 4, 0);
-        Edge edge7 = new Edge(7, 0, 4);
-        Edge edge8 = new Edge(8, 0, 5);
+        AbstractEdge edge0 = new EdgeImpl(0, 0, 1);
+        AbstractEdge edge1 = new EdgeImpl(1, 1, 0);
+        AbstractEdge edge2 = new EdgeImpl(2, 1, 2);
+        AbstractEdge edge3 = new EdgeImpl(3, 2, 1);
+        AbstractEdge edge4 = new EdgeImpl(4, 3, 1);
+        AbstractEdge edge6 = new EdgeImpl(6, 4, 0);
+        AbstractEdge edge7 = new EdgeImpl(7, 0, 4);
+        AbstractEdge edge8 = new EdgeImpl(8, 0, 5);
 
         edge0.successor(edge1);
         edge0.neighbor(edge7);

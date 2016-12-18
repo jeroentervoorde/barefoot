@@ -35,7 +35,7 @@ public class RoadPointTest {
                 (Polyline) GeometryEngine.geometryFromWkt(wkt, WktImportFlags.wktImportDefaults,
                         Geometry.Type.Polyline));
 
-        RoadMap map = new RoadMap();
+        RoadMapImpl map = new RoadMapImpl();
         map.add(new Road(osm, Heading.forward));
 
         RoadPoint point1 = new RoadPoint(map.get(0L), 0.2);

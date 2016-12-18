@@ -75,7 +75,7 @@ public class DijkstraTest {
 
     @Test
     public void testSameRoad() {
-        Graph<Road> map = new Graph<>();
+        GraphImpl<Road> map = new GraphImpl<>();
         map.add(new Road(0, 0, 1, 100));
         map.add(new Road(1, 1, 0, 20));
         map.add(new Road(2, 0, 2, 100));
@@ -174,7 +174,7 @@ public class DijkstraTest {
 
     @Test
     public void testSelfLoop() {
-        Graph<Road> map = new Graph<>();
+        GraphImpl<Road> map = new GraphImpl<>();
         map.add(new Road(0, 0, 0, 100));
         map.add(new Road(1, 0, 0, 100));
         map.construct();
@@ -272,7 +272,7 @@ public class DijkstraTest {
     @Test
     public void testShortestPath() {
         {
-            Graph<Road> map = new Graph<>();
+            GraphImpl<Road> map = new GraphImpl<>();
             map.add(new Road(0, 0, 1, 100));
             map.add(new Road(1, 1, 0, 100));
             map.add(new Road(2, 0, 2, 160));

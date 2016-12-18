@@ -24,17 +24,12 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.bmwcarit.barefoot.roadmap.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.bmwcarit.barefoot.markov.Filter;
 import com.bmwcarit.barefoot.markov.KState;
-import com.bmwcarit.barefoot.roadmap.Distance;
-import com.bmwcarit.barefoot.roadmap.Road;
-import com.bmwcarit.barefoot.roadmap.RoadMap;
-import com.bmwcarit.barefoot.roadmap.RoadPoint;
-import com.bmwcarit.barefoot.roadmap.Route;
-import com.bmwcarit.barefoot.roadmap.TimePriority;
 import com.bmwcarit.barefoot.scheduler.StaticScheduler;
 import com.bmwcarit.barefoot.scheduler.StaticScheduler.InlineScheduler;
 import com.bmwcarit.barefoot.scheduler.Task;
